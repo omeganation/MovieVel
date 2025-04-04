@@ -256,10 +256,64 @@ header{
 
 }
 
+
 /*Swiper btns*/
 .swiper-btn{
     display: flex;
 }
+/* Card-style Swiper */
+.popular-content {
+    padding: 20px 0;
+    max-width: 1200px; /* Control overall width */
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    width: auto !important; /* Let content dictate width */
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-card {
+    width: 200px; /* Fixed card width */
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    margin: 0 10px;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+}
+
+.movie-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    position: relative;
+}
+
+.play-btn {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background: var(--main-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
 .swiper-button-next,
 .swiper-button-prev{
     position: static !important;
@@ -359,6 +413,7 @@ header{
     background: var(--container-color);
     padding: 0 4px;
 }
+
 .play-movie{
     position: absolute;
     bottom: 18rem;
@@ -372,6 +427,117 @@ header{
     background: var(--main-color);
     font-size: 24px;
     animation: animate 2s linear infinite;
+}
+/* Favorite Button Styles */
+.movie-actions {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.favorite-btn {
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.favorite-btn.active {
+    color: red;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Favorites Section */
+#favorites {
+    padding: 2rem 0;
+}
+
+.favorites-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Add to style.css */
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.3); }
+    50% { transform: scale(0.9); }
+    75% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.favorite-btn.active {
+    animation: heartPulse 0.6s ease;
+    color: red;
+}
+/* Add to style.css */
+@keyframes floatUp {
+    0% { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(-30px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.favorite-btn::after {
+    content: '+1';
+    position: absolute;
+    color: red;
+    font-size: 0;
+    pointer-events: none;
+    transition: all 0.5s;
+}
+
+.favorite-btn.active::after {
+    animation: floatUp 0.8s ease-out;
+    font-size: 16px;
+}
+/* Add to style.css */
+@keyframes bubbleBurst {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.favorite-btn.active {
+    animation: bubbleBurst 0.8s ease;
+}
+
+/* Confetti CSS */
+.confetti {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="red" d="M5 0L6.3 3.5H10L7 5.7L8.3 9.3L5 7L1.7 9.3L3 5.7L0 3.5H3.7z"/></svg>') 
+                repeat top center;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
 }
 @keyframes animate {
     0%{
