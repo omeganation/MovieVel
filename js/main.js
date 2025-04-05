@@ -1,3 +1,29 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const loader = document.getElementById("loader");
+  
+    // Ensure the loader is shown
+    loader.style.display = "flex";
+    loader.style.opacity = "1";
+  
+    // Wait for full load
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => {
+          loader.style.display = "none";
+        }, 500);
+      }, 1200); // Delay before hiding loader
+    });
+  
+    // Show loader again when user clicks links or buttons
+    document.querySelectorAll("a, button").forEach(el => {
+      el.addEventListener("click", () => {
+        loader.style.display = "flex";
+        loader.style.opacity = "1";
+      });
+    });
+  });
+
 //swipper
 
 var swiper = new Swiper(".popular-content", {
@@ -283,3 +309,23 @@ function triggerConfetti() {
         confetti.remove();
     }, 3000);
 }
+
+// Show loader during actions
+function showLoader() {
+    document.querySelector('.tiktok-loader').style.display = 'block';
+}
+
+function hideLoader() {
+    document.querySelector('.tiktok-loader').style.display = 'none';
+}
+
+// Example usage (for search):
+document.getElementById('search-input').addEventListener('input', () => {
+    showLoader();
+    setTimeout(hideLoader, 800); // Simulate loading
+});
+
+// For page transitions
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoader, 1500); // Hide after initial load
+});
