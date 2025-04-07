@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive movie Website</title>
+    <!--link to css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--link swipper css-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!--fav icon-->
+    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
+    <!--Box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
+
+<body>
+    <!-- header -->
+    <header>
+        <!-- Add to header -->
+        <!-- Nav-->
+        <div class="nav container">
+            <!--logo-->
+            <a href="index.html" class="logo">
+                Movie<span>nation</span>
+            </a>
+            <!-- Search Box-->
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Search Movie">
+                <i class='bx bx-search'></i>
+            </div>
+            <!-- User -->
+            <a href="#" class="user">
+                <img src="img/fav-icon.png" alt="" class="user-img">
+            </a>
+            <!-- NavBar-->
+            <div class="navbar">
+                <a href="index.html" class="navbar-link nav-active">
+                    <i class='bx bx-home'></i>
+                    <span class="nav-link-title">Home</span>
+                </a>
+                <a href="#popular" class="navbar-link">
+                    <i class='bx bxs-hot'></i>
+                    <span class="nav-link-title">Trending</span>
+                </a>
+                <a href="#movies" class="navbar-link">
+                    <i class='bx bx-compass'></i>
+                    <span class="nav-link-title">Explore</span>
+                </a>
+                <a href="play-page.html" class="navbar-link">
+                    <i class='bx bx-tv'></i>
+                    <span class="nav-link-title">Movies</span>
+                </a>
+                <a href="favorites.html" class="navbar-link">
+                    <i class='bx bx-heart'></i>
+                    <span class="nav-link-title">Favourite</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <a href="index.html" class="back-btn">
+        <i class='bx bx-arrow-back'></i> Back to Movies
+    </a>
+    <main>
+        <div class="favorites-container">
+            <!-- Favorites will load here -->
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
