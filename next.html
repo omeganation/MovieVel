@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive movie Website</title>
+    <!--link to css-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--link swipper css-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <!--fav icon-->
+    <link rel="shortcut icon" href="img/fav-icon.png" type="image/x-icon">
+    <!--Box icons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+
+
+<body>
+    <!-- header -->
+    <header>
+        <!-- Add to header -->
+        <!-- Nav-->
+        <div class="nav container">
+            <!--logo-->
+            <a href="index.html" class="logo">
+                Movie<span>nation</span>
+            </a>
+            <!-- Search Box-->
+            <div class="search-box">
+                <input type="search" name="" id="search-input" placeholder="Search Movie">
+                <i class='bx bx-search'></i>
+            </div>
+            <!-- User -->
+            <a href="#" class="user">
+                <img src="img/fav-icon.png" alt="" class="user-img">
+            </a>
+            <!-- NavBar-->
+            <div class="navbar">
+                <a href="index.html" class="navbar-link nav-active">
+                    <i class='bx bx-home'></i>
+                    <span class="nav-link-title">Home</span>
+                </a>
+                <a href="popular.html" class="navbar-link">
+                    <i class='bx bxs-hot'></i>
+                    <span class="nav-link-title">Trending</span>
+                </a>
+                <a href="#movies" class="navbar-link">
+                    <i class='bx bx-compass'></i>
+                    <span class="nav-link-title">Explore</span>
+                </a>
+                <a href="movies.html" class="navbar-link">
+                    <i class='bx bx-tv'></i>
+                    <span class="nav-link-title">Movies</span>
+                </a>
+                <a href="favorites.html" class="navbar-link">
+                    <i class='bx bx-heart'></i>
+                    <span class="nav-link-title">Favourite</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!--Home-->
+    <section class="home container" id="home">
+        <!--Home Image-->
+        <img src="play-page/mission5.jpeg" alt="" class="home-img">
+        <!--Home Text-->
+        <div class="home-text">
+            <h1 class="home-title">Mission: Impossible <br> The Final Reckoning</h1>
+            <p>Realising May 23, 2025</p>
+            <a href="#" class="watch-btn">
+                <i class='bx bx-right-arrow'></i>
+                <span>Watch The Trailer</span>
+            </a>
+            </h1>
+        </div>
+    </section>
+    <!--Movies-->
+
+    <!--Next Page-->
+    <div class="next-page">
+        <a href="next.html" class="next-btn">Next Page</a>
+    </div>
+    <!-- Add this before the copyright section -->
+    <section class="container" id="favorites" style="display: none;">
+        <!-- Content will be dynamically inserted here -->
+    </section>
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>&copy; 2025 All Rights Reserved | Designed By OmegaNation</p>
+    </div>
+    <!--link swiper JS-->
+    <script src="js/swiper-bundle.min.js"></script>
+    <!--link to JS-->
+    <script src="js/main.js"></script>
+    <!-- Add before </body> -->
+
+</body>
+
+</html>

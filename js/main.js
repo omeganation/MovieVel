@@ -582,22 +582,23 @@ function triggerConfetti() {
     }, 3000);
 }
 
-// Show loader during actions
-function showLoader() {
-    document.querySelector('.tiktok-loader').style.display = 'block';
-}
 
-function hideLoader() {
-    document.querySelector('.tiktok-loader').style.display = 'none';
-}
+// YouTube Trailer Functionality
+const trailerBtn = document.getElementById('trailer-btn');
+const youtubeEmbed = document.getElementById('youtube-embed');
+const closeTrailer = document.querySelector('.close-trailer');
 
-// Example usage (for search):
-document.getElementById('search-input').addEventListener('input', () => {
-    showLoader();
-    setTimeout(hideLoader, 800); // Simulate loading
+trailerBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  youtubeEmbed.style.display = 'block';
+  document.body.style.overflow = 'hidden'; // Prevent page scrolling
 });
 
-// For page transitions
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideLoader, 1500); // Hide after initial load
+closeTrailer.addEventListener('click', function() {
+  youtubeEmbed.style.display = 'none';
+  document.body.style.overflow = 'auto'; // Re-enable scrolling
+  
+  // Reset the iframe to stop playback
+  const iframe = youtubeEmbed.querySelector('iframe');
+  iframe.src = iframe.src; // This reloads the iframe, stopping any video
 });
