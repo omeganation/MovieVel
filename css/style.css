@@ -839,6 +839,183 @@ header {
     color: var(--heart-color);
 }
 
+.youtube-embed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    background: #000;
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.youtube-embed iframe {
+    border: none;
+}
+
+.close-trailer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.youtube-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+    display: none;
+}
+
+.show-video {
+    display: flex !important;
+    /* or whatever makes it visible */
+}
+
+/* Add this to your CSS */
+.ad-container {
+    margin: 20px auto;
+    padding: 10px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: fit-content;
+    max-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.ad-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.ad-content span {
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.ad-arrow {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Animation effects */
+.ad-container:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* CSS (updated for WhatsApp theme) */
+.ad-container {
+    margin: 15px auto;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.2) 0%, rgba(37, 211, 102, 0.15) 100%);
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(37, 211, 102, 0.3);
+    width: fit-content;
+    max-width: 250px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+    text-decoration: none;
+}
+
+.ad-content span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ad-arrow {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.ad-corner-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(37, 211, 102, 0.5);
+    color: white;
+    font-size: 0.6rem;
+    padding: 2px 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* Animation effects */
+.ad-container:hover {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.3) 0%, rgba(37, 211, 102, 0.2) 100%);
+    transform: scale(1.03);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ad-container:hover .ad-arrow {
+    transform: translateX(3px);
+    animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(3px) scale(1);
+    }
+
+    50% {
+        transform: translateX(3px) scale(1.1);
+    }
+
+    100% {
+        transform: translateX(3px) scale(1);
+    }
+}
+
+.ad-container:hover .ad-arrow {
+    transform: translateX(3px);
+    animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 .circle {
     width: 12px;
     /* smaller size */

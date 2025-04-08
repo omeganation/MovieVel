@@ -174,6 +174,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const trailerBtn = document.getElementById('trailer-btn');
+  const youtubeEmbed = document.getElementById('youtube-embed');
+  const closeTrailer = document.querySelector('.close-trailer');
+  
+  // Replace with your actual YouTube video ID
+  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; 
+  
+  trailerBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Set the iframe source
+    const iframe = youtubeEmbed.querySelector('iframe');
+    iframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`;
+    
+    // Show the embed
+    youtubeEmbed.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  });
+  
+  closeTrailer.addEventListener('click', function() {
+    const iframe = youtubeEmbed.querySelector('iframe');
+    iframe.src = '';
+    youtubeEmbed.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  });
+});
+
 // ===== FAVORITE SYSTEM ===== //
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize favorites array
@@ -326,22 +354,24 @@ const popularSwiper = new Swiper('.popular-content', {
     }
 });
 //show video
-let playButton = document.querySelector('.play-movie')
-let video = document.querySelector('.video-container')
-let myvideo = document.querySelector('#myvideo')
-let closebtn = document.querySelector(".close video")
+let playButton = document.querySelector('.play-movie');
+let video = document.querySelector('.video-container');
+let myvideo = document.querySelector('#myvideo');
+let closebtn = document.querySelector(".close.video");  // Fixed selector
 
 playButton.onclick = () => {
     video.classList.add("show-video");
-    //Auto play when click On Button
+    // Auto play when click On Button
     myvideo.play();
 };
+
 closebtn.onclick = () => {
     video.classList.remove("show-video");
-    // Pause On clause Video
+    // Pause On close Video
     myvideo.pause();
 };
-// Add to main.js
+
+// Search functionality
 document.getElementById('search-input').addEventListener('input', (e) => {
     const searchTerm = e.target.value.toLowerCase();
     document.querySelectorAll('.movie-card').forEach(card => {
