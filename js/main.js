@@ -93,70 +93,70 @@ function loadFavoritesPage() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Get all favorite buttons
     const favoriteBtns = document.querySelectorAll('.favorite-btn');
-    
+
     // Load saved favorites from localStorage
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    
+
     // Initialize buttons
     favoriteBtns.forEach(btn => {
-      const movieId = btn.dataset.movieId;
-      if (favorites.includes(movieId)) {
-        btn.classList.add('active');
-        btn.innerHTML = '<i class="bx bxs-heart"></i>'; // Solid heart
-      }
+        const movieId = btn.dataset.movieId;
+        if (favorites.includes(movieId)) {
+            btn.classList.add('active');
+            btn.innerHTML = '<i class="bx bxs-heart"></i>'; // Solid heart
+        }
     });
-    
+
     // Handle clicks
     favoriteBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        const movieId = this.dataset.movieId;
-        
-        // Reset animation
-        this.style.animation = 'none';
-        void this.offsetWidth; // Trigger reflow
-        
-        if (this.classList.contains('active')) {
-          // Remove favorite
-          this.classList.remove('active');
-          this.innerHTML = '<i class="bx bx-heart"></i>';
-          favorites = favorites.filter(id => id !== movieId);
-        } else {
-          // Add favorite
-          this.classList.add('active');
-          this.innerHTML = '<i class="bx bxs-heart"></i>';
-          this.style.animation = 'heartBeat 0.6s ease';
-          favorites.push(movieId);
-        }
-        
-        // Save to localStorage
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-      });
-    });
-  });
+        btn.addEventListener('click', function () {
+            const movieId = this.dataset.movieId;
 
-  // Favorite functionality
-document.addEventListener('DOMContentLoaded', function() {
+            // Reset animation
+            this.style.animation = 'none';
+            void this.offsetWidth; // Trigger reflow
+
+            if (this.classList.contains('active')) {
+                // Remove favorite
+                this.classList.remove('active');
+                this.innerHTML = '<i class="bx bx-heart"></i>';
+                favorites = favorites.filter(id => id !== movieId);
+            } else {
+                // Add favorite
+                this.classList.add('active');
+                this.innerHTML = '<i class="bx bxs-heart"></i>';
+                this.style.animation = 'heartBeat 0.6s ease';
+                favorites.push(movieId);
+            }
+
+            // Save to localStorage
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+        });
+    });
+});
+
+// Favorite functionality
+document.addEventListener('DOMContentLoaded', function () {
     const favoriteBtns = document.querySelectorAll('.favorite-btn');
-    
+
     // Load favorites from localStorage
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    
+
     // Initialize buttons
     favoriteBtns.forEach(btn => {
         const card = btn.closest('.movie-card');
         const movieId = card.getAttribute('data-movie-id');
-        
+
         if (favorites.includes(movieId)) {
             btn.classList.add('active');
             btn.innerHTML = '<i class="bx bxs-heart"></i>';
         }
-        
-        btn.addEventListener('click', function() {
+
+        btn.addEventListener('click', function () {
             const icon = this.querySelector('i');
-            
+
             if (this.classList.contains('active')) {
                 // Remove from favorites
                 favorites = favorites.filter(id => id !== movieId);
@@ -168,38 +168,38 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.classList.add('active');
                 icon.classList.replace('bx-heart', 'bxs-heart');
             }
-            
+
             localStorage.setItem('favorites', JSON.stringify(favorites));
         });
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-  const trailerBtn = document.getElementById('trailer-btn');
-  const youtubeEmbed = document.getElementById('youtube-embed');
-  const closeTrailer = document.querySelector('.close-trailer');
-  
-  // Replace with your actual YouTube video ID
-  const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID"; 
-  
-  trailerBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-    
-    // Set the iframe source
-    const iframe = youtubeEmbed.querySelector('iframe');
-    iframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`;
-    
-    // Show the embed
-    youtubeEmbed.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  });
-  
-  closeTrailer.addEventListener('click', function() {
-    const iframe = youtubeEmbed.querySelector('iframe');
-    iframe.src = '';
-    youtubeEmbed.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  });
+document.addEventListener('DOMContentLoaded', function () {
+    const trailerBtn = document.getElementById('trailer-btn');
+    const youtubeEmbed = document.getElementById('youtube-embed');
+    const closeTrailer = document.querySelector('.close-trailer');
+
+    // Replace with your actual YouTube video ID
+    const youtubeVideoId = "YOUR_YOUTUBE_VIDEO_ID";
+
+    trailerBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Set the iframe source
+        const iframe = youtubeEmbed.querySelector('iframe');
+        iframe.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`;
+
+        // Show the embed
+        youtubeEmbed.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    closeTrailer.addEventListener('click', function () {
+        const iframe = youtubeEmbed.querySelector('iframe');
+        iframe.src = '';
+        youtubeEmbed.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
 });
 
 // ===== FAVORITE SYSTEM ===== //
@@ -588,17 +588,130 @@ const trailerBtn = document.getElementById('trailer-btn');
 const youtubeEmbed = document.getElementById('youtube-embed');
 const closeTrailer = document.querySelector('.close-trailer');
 
-trailerBtn.addEventListener('click', function(e) {
-  e.preventDefault();
-  youtubeEmbed.style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent page scrolling
+trailerBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    youtubeEmbed.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent page scrolling
 });
 
-closeTrailer.addEventListener('click', function() {
-  youtubeEmbed.style.display = 'none';
-  document.body.style.overflow = 'auto'; // Re-enable scrolling
-  
-  // Reset the iframe to stop playback
-  const iframe = youtubeEmbed.querySelector('iframe');
-  iframe.src = iframe.src; // This reloads the iframe, stopping any video
+closeTrailer.addEventListener('click', function () {
+    youtubeEmbed.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+
+    // Reset the iframe to stop playback
+    const iframe = youtubeEmbed.querySelector('iframe');
+    iframe.src = iframe.src; // This reloads the iframe, stopping any video
+});
+
+
+// Add to your main.js
+document.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(document.querySelectorAll('.movie-slide'));
+    const dotsContainer = document.querySelector('.nav-dots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    let currentIndex = 0;
+
+    // Create navigation dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(document.querySelectorAll('.dot'));
+
+    // Set up event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Auto-rotate every 5 seconds
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    // Pause on hover
+    track.addEventListener('mouseenter', () => clearInterval(slideInterval));
+    track.addEventListener('mouseleave', () => {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    });
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Update active classes
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentIndex);
+        });
+
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+});
+
+// Add this to your main.js
+document.addEventListener('DOMContentLoaded', function () {
+    // Remind Me functionality
+    const remindButtons = document.querySelectorAll('.remind-me');
+
+    remindButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const movieId = this.dataset.movieId;
+            const movieTitle = this.closest('.movie-info').querySelector('h2').textContent;
+
+            // Check if already set
+            if (localStorage.getItem(`reminder_${movieId}`)) {
+                alert(`You'll be notified when ${movieTitle} releases!`);
+                return;
+            }
+
+            // Set reminder
+            localStorage.setItem(`reminder_${movieId}`, 'true');
+
+            // Visual feedback
+            this.innerHTML = '<i class="bx bx-check"></i> Reminder Set';
+            this.style.backgroundColor = '#4CAF50';
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'reminder-notification';
+            notification.innerHTML = `
+          <i class="bx bx-check-circle"></i>
+          <span>We'll remind you about ${movieTitle}</span>
+        `;
+
+            document.body.appendChild(notification);
+
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.add('fade-out');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        });
+    });
+
+    // Initialize Swiper (existing code)
+    const upcomingSwiper = new Swiper('.upcoming-swiper', {
+        // ... your existing swiper config
+    });
 });

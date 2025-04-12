@@ -1138,77 +1138,581 @@ header {
     }
 }
 
+/* Swiper Navigation Buttons */
+.swiper-btn {
+    display: flex;
+    gap: 10px;
+    margin-left: 15px;
+    /* Adjust as needed */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.swiper-button-prev i,
+.swiper-button-next i {
+    font-size: 24px;
+}
+
+/* Add this to your CSS */
+.footer-container {
+    background: #1e1e2a;
+    color: #fff;
+    padding: 30px 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    margin-bottom: 15px;
+}
+
+.combined-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-title {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #e50914;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.footer-links a,
+.footer-links li {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links li:hover {
+    color: #fff;
+}
+
+.footer-links i {
+    font-size: 1rem;
+    color: #e50914;
+}
+
+.social-media {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    background: #e50914;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #25D366;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+.whatsapp-btn:hover {
+    background: #128C7E;
+}
+
+.footer-credits {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    margin-top: 5px;
+}
+
+.copyright {
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .combined-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-section {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .combined-section {
+        flex-direction: column;
+    }
+}
+
+/* Add to your CSS */
+.movie-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.movie-slide {
+    min-width: 100%;
+    padding: 20px;
+    opacity: 0.3;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.movie-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-content {
+    display: flex;
+    background: rgba(20, 20, 30, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.movie-poster {
+    position: relative;
+    width: 40%;
+    min-height: 400px;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(229, 9, 20, 0.3), transparent);
+    z-index: 1;
+}
+
+.movie-details {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.release-badge {
+    display: inline-block;
+    background: #e50914;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    align-self: flex-start;
+}
+
+.movie-details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.movie-details h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.release-date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.play-trailer,
+.remind-me {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.play-trailer {
+    background: #e50914;
+    color: white;
+    text-decoration: none;
+}
+
+.play-trailer:hover {
+    background: #c40812;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+.remind-me {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.remind-me:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: #e50914;
+    transform: scale(1.1);
+}
+
+.nav-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dots .dot.active {
+    background: #e50914;
+    transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .slide-content {
+        flex-direction: column;
+    }
+
+    .movie-poster,
+    .movie-details {
+        width: 100%;
+    }
+
+    .movie-poster {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .movie-actions {
+        flex-direction: column;
+    }
+
+    .movie-details {
+        padding: 25px;
+    }
+
+    .movie-details h2 {
+        font-size: 2rem;
+    }
+
+    .movie-details h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Add these styles to your CSS */
+.remind-me {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.remind-me:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.remind-me i {
+    font-size: 1.1em;
+}
+
+/* Notification Style */
+.reminder-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(40, 40, 50, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border-left: 4px solid #4CAF50;
+    animation: slideUp 0.5s ease;
+}
+
+.reminder-notification i {
+    color: #4CAF50;
+    font-size: 1.5rem;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes slideUp {
+    from {
+        bottom: -50px;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+
 /*For Medium Device / Tablet Etc...*/
 @media (max-width: 768px) {
     .nav {
         padding: 11px 0;
     }
+
     .logo {
         font-size: 1.2rem;
     }
+
     section {
         padding: 2rem 0;
     }
-    .home-img{
+
+    .home-img {
         object-position: left;
     }
-    .movie-type{
+
+    .movie-type {
         font-size: 0.875rem;
         margin-top: 2px;
     }
-    .tags span, 
-    .about-movie p{
+
+    .tags span,
+    .about-movie p {
         font-size: 0.875rem;
     }
-    p{
+
+    p {
         font-size: 0.875rem;
     }
+
     .play-text h2,
-    .about-movie h2{
+    .about-movie h2 {
         font-size: 1.3rem;
     }
+
     .play-movie {
         bottom: 10rem;
         right: 2rem;
     }
 }
-@media (max-width: 514px){
+
+@media (max-width: 514px) {
     .home {
         min-height: 380px;
     }
-    .heading{
+
+    .heading {
         padding: 2px 14px;
     }
-    .heading-title{
+
+    .heading-title {
         font-size: 1rem;
     }
-    .play-text{
+
+    .play-text {
         padding: 20px;
     }
+
     .play-movie {
         bottom: 4rem;
     }
+
     .video-box {
         width: 94%;
     }
+
     .cast-heading {
         font-size: 1.1rem;
     }
+
     .cast-title {
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 408px) {
-    *{
+    * {
         scroll-padding-top: 5rem;
     }
+
     .nav {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         row-gap: 5px;
     }
+
     .search-box {
         max-width: 100%;
         width: 100%;
@@ -1217,41 +1721,51 @@ header {
         grid-column-start: 1;
         grid-column-end: 3;
     }
-    .home, 
+
+    .home,
     .play-container {
         margin-top: 7rem !important;
     }
+
     .movie-box {
         height: 300px;
     }
+
     .movies-content {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
     }
 }
+
 /* For small Devices */
 @media (max-width: 370px) {
     .home {
         min-height: 300px;
     }
+
     .movie-box {
         height: 285px;
     }
-    .user img, 
+
+    .user img,
     .watch-btn .bx {
         width: 35px;
         height: 35px;
     }
+
     .navbar {
         justify-content: space-around;
         padding: 8px 0;
     }
+
     .watch-btn .bx {
         font-size: 1.4rem;
     }
+
     .about-movie p {
         text-align: justify;
     }
+
     .download-links {
         grid-template-columns: 1fr;
     }
